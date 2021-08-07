@@ -177,14 +177,14 @@ class Exporter {
 
 				// Backup table.
 				$table_report = $this->backup_table(
-					$stripped_url_search,
-					$stripped_url_replace,
 					$table,
+					$stripped_url_search,
+					$stripped_url_replace,					
 					$new_table_prefix
 				);
 			} else {
 				// Backup table.
-				$table_report = $this->backup_table( $search, $replace, $table, $new_table_prefix, $csv );
+				$table_report = $this->backup_table($table, $search, $replace, $new_table_prefix, $csv );
 			}
 
 			// Log changes if any.
@@ -292,7 +292,7 @@ class Exporter {
 	 * @return array $table_report Reports the changes made to the db.
 	 * @throws \Throwable
 	 */
-	public function backup_table( $search = '', $replace = '', $table, $new_table_prefix = '', $csv = null ) {
+	public function backup_table( $table, $search = '', $replace = '', $new_table_prefix = '', $csv = null ) {
 
 		$table_report = [
 			'table_name' => $table,

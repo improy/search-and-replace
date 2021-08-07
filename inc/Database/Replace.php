@@ -90,7 +90,7 @@ class Replace {
 		foreach ( (array) $tables as $table ) {
 			// Count tables.
 			$report ['tables'] ++;
-			$table_report = $this->replace_values( $search, $replace, $table, $csv );
+			$table_report = $this->replace_values( $table, $search, $replace, $csv );
 			// Log changes if any.
 			if ( 0 !== $table_report['change'] ) {
 				$report['changes'][ $table ] = $table_report;
@@ -114,7 +114,7 @@ class Replace {
 	 * @return array
 	 * @throws \Throwable
 	 */
-	public function replace_values( $search = '', $replace = '', $table, $csv = null ) {
+	public function replace_values( $table, $search = '', $replace = '', $csv = null ) {
 
 		$table_report = [
 			'table_name' => $table,
